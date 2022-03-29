@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Activity application</h1>
+    <button id="getActivity">Get activity</button>
+    <div>
+        <legend for="participants">Amount of participants</legend>
+        <input type="radio" name="participants" id="one" value="1">
+        <label for="one">1</label>
+        <input type="radio" name="participants" id="two" value="2">
+        <label for="one">2</label>
+        <input type="radio" name="participants" id="three" value="3">
+        <label for="one">3</label>
+        <input type="radio" name="participants" id="four" value="4">
+        <label for="one">4</label>
+    </div>
+    <div>
+        <label for="typeDropdown">Select activity type</label>
+        <select name="type" id="typeDropdown">
+            <option value="all">All</option>
+        </select>
+    </div>
+    <div>
+        <label for="free">Free activity</label>
+        <input type="checkbox" name="free" id="free">
+    </div>
+    <div id="activity-container"></div>
+    <script src="main.js"></script>
+</body>
+</html>
