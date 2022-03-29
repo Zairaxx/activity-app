@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <h1>Activity application</h1>
     <button id="getActivity">Get activity</button>
     <div>
         <legend for="participants">Amount of participants</legend>
+        <input type="radio" name="participants" id="all" value="" checked>
+        <label for="all">All</label>
         <input type="radio" name="participants" id="one" value="1">
         <label for="one">1</label>
         <input type="radio" name="participants" id="two" value="2">
@@ -23,7 +26,7 @@
     <div>
         <label for="typeDropdown">Select activity type</label>
         <select name="type" id="typeDropdown">
-            <option value="all">All</option>
+            <option value="">All</option>
         </select>
     </div>
     <div>

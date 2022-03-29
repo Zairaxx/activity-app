@@ -1,5 +1,6 @@
 let activityTypes = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
 
+console.log(axios);
 activityTypes.forEach(type => {
     let option = document.createElement("option")
     option.value = type;
@@ -10,35 +11,22 @@ activityTypes.forEach(type => {
 
 let getData = async (url) => {
 
-    let participants = document.querySelector("[name='participants']:checked");
-    console.log(participants);
-    let queries = "?";
-
-    if(participants !== null) {
-        queries+= `participants=${participants.value}`
-    }
-
+    let participants = document.querySelector("[name='participants']:checked").value;
     let activityType = document.querySelector("#typeDropdown");
 
-    if(activityType.value !== "all"){
-        if(queries === "?"){
-            queries+=`type=${activityType.value}`    
-        } else {
-            queries+=`&type=${activityType.value}`
-        }
+    let parameters = {
+        participants: participants,
+        type: activityType.value,
     }
 
     if(document.querySelector("#free").checked){
-        if(queries === "?"){
-            queries+="price=0.0";
-        } else {
-            queries+="&price=0.0";
-        }
+        parameters.price = "0.0";
     }
 
-    let response = await fetch(url + queries);
-    let data = await response.json();
-    return data;
+    let response = await axios.get(url, {
+        params: parameters
+    });
+    return response.data
 }
 
 let renderActivity = async () => {
